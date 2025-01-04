@@ -8,7 +8,7 @@
 
         <!-- Button Tambah Post -->
         <div class="d-flex justify-content-end mb-3">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPostModal">Tambah Post</button>
+            <button class="btn btn-primary"><a href="/kelola-konten/create" style="color: #fff; text-decoration:none">Tambah Post</a></button>
         </div>
 
         <table class="table table-striped">
@@ -17,6 +17,7 @@
                     <th>No</th>
                     <th>Judul</th>
                     <th>Konten</th>
+                    <th>Kategori</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -26,6 +27,7 @@
                         <td>{{ $index = $index + 1 }}</td>
                         <td>{{ $isi->title }}</td>
                         <td>{{ Str::limit($isi->body, 50) }}</td>
+                        <td>{{ $isi->category_id }}</td>
                         <td>
                             <button class="btn btn-warning btn-sm">Edit</button>
                             <button class="btn btn-danger btn-sm">Hapus</button>
