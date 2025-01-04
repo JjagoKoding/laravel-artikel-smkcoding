@@ -6,6 +6,7 @@
     <div class="container my-5">
         <h1 class="text-center mb-4">Kelola Konten</h1>
 
+        <!-- Button Tambah Post -->
         <div class="d-flex justify-content-end mb-3">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPostModal">Tambah Post</button>
         </div>
