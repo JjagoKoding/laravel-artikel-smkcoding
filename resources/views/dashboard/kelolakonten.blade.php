@@ -21,24 +21,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Judul Post Pertama</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                    <td>
-                        <button class="btn btn-warning btn-sm">Edit</button>
-                        <button class="btn btn-danger btn-sm">Hapus</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Judul Post Kedua</td>
-                    <td>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</td>
-                    <td>
-                        <button class="btn btn-warning btn-sm">Edit</button>
-                        <button class="btn btn-danger btn-sm">Hapus</button>
-                    </td>
-                </tr>
+                @foreach ($post as $index => $isi)
+                    <tr>
+                        <td>{{ $index = $index + 1 }}</td>
+                        <td>{{ $isi->title }}</td>
+                        <td>{{ Str::limit($isi->body, 50) }}</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm">Edit</button>
+                            <button class="btn btn-danger btn-sm">Hapus</button>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
