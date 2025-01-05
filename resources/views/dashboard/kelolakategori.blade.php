@@ -32,7 +32,7 @@
                         <td>{{ $isi->name }}</td>
                         <td>
                             <button class="btn btn-warning btn-sm"><a href="/kelola-kategori/{{ $isi->id }}/edit" style="color: #fff; text-decoration: none;">Edit</a></button>
-                            <form action="/kelola-konten/{{ $isi->id }}" method="POST" style="display: inline">
+                            <form action="/kelola-kategori/{{ $isi->id }}" method="POST" style="display: inline">
                                 @csrf
                                 @method("DELETE")
                                 <button class="btn btn-danger btn-sm" type="submit">Hapus</button>
