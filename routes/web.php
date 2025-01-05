@@ -33,3 +33,5 @@ Route::get('/peran-pengguna', [UserController::class, 'index'])->name('user.inde
 
 Route::get('/peran-pengguna/create',[UserController::class, 'create'])->name('user.create');
 Route::post('/peran-pengguna', [UserController::class, 'store'])->name('user.store');
+
+Route::delete('peran-pengguna/{id}', [UserController::class, 'destroy']);
