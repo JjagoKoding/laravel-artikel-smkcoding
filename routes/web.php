@@ -24,3 +24,6 @@ Route::get('/kelola-kategori/create', [CategoryController::class, 'create'])->na
 Route::post('/kelola-kategori', [CategoryController::class, 'store'])->name('category.store');
 
 Route::delete('kelola-kategori/{id}', [CategoryController::class, 'destroy']);
+
+Route::get('/kelola-kategori/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+Route::put('/kelola-kategori/{id}', [CategoryController::class, 'update'])->name('category.update');
