@@ -40,11 +40,4 @@ Route::put('/peran-pengguna/{id}', [UserController::class, 'update'])->name('use
 
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('auth.login');
-Route::post('/login', [LoginController::class, 'login'])->name('auth.login.submit');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(AdminMiddleware::class)->name('dashboard');
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard.dashboard');
-// })->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

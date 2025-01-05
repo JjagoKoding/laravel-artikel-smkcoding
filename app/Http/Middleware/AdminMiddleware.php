@@ -16,10 +16,8 @@ class AdminMiddleware
     
     public function handle(Request $request, Closure $next): Response
     {
-        if (session('userRole') !== 'admin') {
-            return redirect('/login')->with('error', 'Anda tidak memiliki akses ke halaman ini.');
-        }
+        
+            return $next($request); 
 
-        return $next($request);
     }
 }

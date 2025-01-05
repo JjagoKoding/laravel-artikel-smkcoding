@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <form action="{{ route('auth.login.submit') }}" method="POST">
+        <form action="{" method="POST">
             @csrf
             <div class="form-group">
                 <label for="email">Email:</label>
