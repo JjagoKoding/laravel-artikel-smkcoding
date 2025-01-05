@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
@@ -13,7 +15,7 @@ class UserController extends Controller
     }
 
     public function create(){
-        $roles = ['Admin', 'User'];
+        $roles = ['admin', 'user'];
         return view('cruduser.create', compact('roles'));
     }
 
@@ -26,10 +28,11 @@ class UserController extends Controller
             'role' => 'required',
         ]);
 
+
         Users::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' =>Hash::make($request->password),
             'role' => $request->role,
         ]);
 
