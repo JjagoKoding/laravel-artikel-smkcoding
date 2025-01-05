@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Middleware\AdminMiddleware;
 
 Route::get('/kelola-konten', [PostController::class, 'index'])->name('konten.index');
@@ -38,10 +39,6 @@ Route::delete('peran-pengguna/{id}', [UserController::class, 'destroy']);
 Route::get('/peran-pengguna/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::put('/peran-pengguna/{id}', [UserController::class, 'update'])->name('user.update');
 
-
-// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('auth.login');
-// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
 
@@ -53,3 +50,6 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', AdminMiddleware::class . ':admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 });
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/post/{id}', [HomeController::class, 'post']);
