@@ -13,7 +13,8 @@ class UserController extends Controller
     }
 
     public function create(){
-        return view('cruduser.create');
+        $roles = ['Admin', 'User'];
+        return view('cruduser.create', compact('roles'));
     }
 
     public function store(Request $request) {
@@ -32,7 +33,7 @@ class UserController extends Controller
             'role' => $request->role,
         ]);
 
-        return redirect()->route('user.create')->with('success', 'User berhasil dibuat!');
+        return redirect()->route('user.index')->with('success', 'User berhasil dibuat!');
     }
 
     public function destroy($id) {
@@ -41,5 +42,34 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('user.index')->with('success', 'User berhasil dihapus!');
+    }
+
+    public function edit($id) {
+        $user = Users::findOrFail($id);
+        $roles = [
+            'User' => 'User',
+            'Admin' => 'Admin'
+        ];
+        return view('cruduser.update', compact('user'), compact('roles'));
+    }
+
+    public function update(Request $request, $id) {
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'password' => 'required',
+            'role' => 'required',
+        ]);
+
+        $user = Users::findOrFail($id);
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'role' => $request->role,
+        ]);
+
+        return redirect()->route('user.index')->with('success', 'User berhasil diperbarui!');
     }
 }

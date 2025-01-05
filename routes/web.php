@@ -35,3 +35,6 @@ Route::get('/peran-pengguna/create',[UserController::class, 'create'])->name('us
 Route::post('/peran-pengguna', [UserController::class, 'store'])->name('user.store');
 
 Route::delete('peran-pengguna/{id}', [UserController::class, 'destroy']);
+
+Route::get('/peran-pengguna/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::put('/peran-pengguna/{id}', [UserController::class, 'update'])->name('user.update');
