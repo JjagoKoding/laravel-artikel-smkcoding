@@ -31,5 +31,37 @@ class PostController extends Controller
         return redirect()->route('konten.create')->with('success', 'Post berhasil dibuat!');
     }
 
+    public function destroy($id) {
+        $post = Post::findOrFail($id);
+
+        $post->delete();
+
+        return redirect()->route('konten.index')->with('success', 'Post berhasil dihapus!');
+    }
+
+    public function edit($id) {
+        $post = Post::findOrFail($id);
+        return view('crudpost.update', compact('post'));
+    }
+
+    public function update(Request $request, $id) {
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+        ]);
+
+        $post = Post::findOrFail($id);
+
+        $post->update([
+            'title' => $request->title,
+            'body' => $request->body,
+            'category_id' => $request->category_id,
+        ]);
+
+        return redirect()->route('konten.index')->with('success', 'Post berhasil diperbarui!');
+    }
+
+
+
 
 }
