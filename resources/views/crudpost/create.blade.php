@@ -33,8 +33,9 @@
         <div class="mb-3">
             <label for="category_id" class="form-label">Kategori</label>
             <select name="category_id" id="category_id" class="form-control" required>
-                <option value="1">Kategori 1</option>
-                <option value="2">Kategori 2</option>
+                @foreach ($category as $isi)
+                    <option value="{{ $isi->id }}">{{ $isi->name }}</option>
+                @endforeach
             </select>
         </div>
 

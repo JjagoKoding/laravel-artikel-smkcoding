@@ -33,7 +33,7 @@
                         <td>{{ $index = $index + 1 }}</td>
                         <td>{{ $isi->title }}</td>
                         <td>{{ Str::limit($isi->body, 50) }}</td>
-                        <td>{{ $isi->category_id }}</td>
+                        <td>{{ $isi->category->name }}</td>
                         <td>
                             <button class="btn btn-warning btn-sm"><a href="/kelola-konten/{{ $isi->id }}/edit" style="color: #fff; text-decoration: none;">Edit</a></button>
                             <form action="/kelola-konten/{{ $isi->id }}" method="POST" style="display: inline">

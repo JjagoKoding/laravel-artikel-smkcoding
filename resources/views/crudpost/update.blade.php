@@ -34,10 +34,11 @@
         <div class="mb-3">
             <label for="category_id" class="form-label">Kategori</label>
             <select name="category_id" id="category_id" class="form-control" required>
-                <option value="1" {{ old('category_id', $post->category_id) == 1 ? 'selected' : '' }}>
-                Kategori 1</option>
-                <option value="2" {{ old('category_id', $post->category_id) == 2 ? 'selected' : '' }}>
-                Kategori 2</option>
+                @foreach ($categories as $item)
+                    <option value="{{ $item->id }}" {{ old('category_id', $post->category_id) == $item->id ? 'selected' : '' }}>
+                        {{ $item->name }}
+                    </option>
+                @endforeach
             </select>
         </div>
 

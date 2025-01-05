@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index() {
-        $post = Post::all();
+        $post = Post::with('category')->get();
         return view('dashboard.kelolakonten', compact('post'));
     }
 
     public function create(){
-        return view('crudpost.create');
+        $category = Category::all();
+        return view('crudpost.create', compact('category'));
     }
 
     public function store(Request $request) {
@@ -41,7 +43,8 @@ class PostController extends Controller
 
     public function edit($id) {
         $post = Post::findOrFail($id);
-        return view('crudpost.update', compact('post'));
+        $categories = Category::all();
+        return view('crudpost.update', compact('post', 'categories'));
     }
 
     public function update(Request $request, $id) {
