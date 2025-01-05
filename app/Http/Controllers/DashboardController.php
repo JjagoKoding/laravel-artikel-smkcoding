@@ -12,7 +12,7 @@ class DashboardController extends Controller
         if (Gate::allows('is-admin')) {
             return view('dashboard.dashboard');
         } else {
-            abort(403, 'Akses ditolak');
+            return redirect()->route('/');
         }
     }
 }

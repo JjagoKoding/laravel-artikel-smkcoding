@@ -17,10 +17,14 @@ class AdminMiddleware
     
      public function handle($request, Closure $next, $role)
      {
-         if (Auth::check() && Auth::user()->role === $role) {
-             return $next($request);
-         }
- 
-         abort(403, 'Akses ditolak.');
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        if (Auth::user()->role !== $role) {
+            abort(403, 'Akses ditolak');
+        }
+
+        return $next($request);
      }
 }
