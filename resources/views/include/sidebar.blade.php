@@ -11,5 +11,8 @@
         <li class="nav-item">
             <a class="nav-link text-white" href="/kelola-kategori">Kelola Kategori</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="/peran-pengguna">Peran Pengguna</a>
+        </li>
     </ul>
 </div>

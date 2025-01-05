@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -20,10 +21,15 @@ Route::put('/kelola-konten/{id}', [PostController::class, 'update'])->name('kont
 
 Route::get('/kelola-kategori', [CategoryController::class, 'index'])->name('category.index');
 
-Route::get('/kelola-kategori/create', [CategoryController::class, 'create'])->name('category.create');
+Route::get('/kelola-kategori/create',[CategoryController::class, 'create'])->name('category.create');
 Route::post('/kelola-kategori', [CategoryController::class, 'store'])->name('category.store');
 
 Route::delete('kelola-kategori/{id}', [CategoryController::class, 'destroy']);
 
 Route::get('/kelola-kategori/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
 Route::put('/kelola-kategori/{id}', [CategoryController::class, 'update'])->name('category.update');
+
+Route::get('/peran-pengguna', [UserController::class, 'index'])->name('user.index');
+
+Route::get('/peran-pengguna/create',[UserController::class, 'create'])->name('user.create');
+Route::post('/peran-pengguna', [UserController::class, 'store'])->name('user.store');
