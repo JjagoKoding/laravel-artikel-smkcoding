@@ -51,5 +51,5 @@ Route::middleware(['auth', AdminMiddleware::class . ':admin'])->group(function (
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/post/{id}', [HomeController::class, 'post']);

@@ -22,7 +22,7 @@ class AdminMiddleware
         }
 
         if (Auth::user()->role !== $role) {
-            abort(403, 'Akses ditolak');
+            return redirect()->route('index');
         }
 
         return $next($request);
