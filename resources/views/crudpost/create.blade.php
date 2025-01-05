@@ -12,7 +12,7 @@
         </div>
     @endif
 
-    <form action="/kelola-konten" method="POST">
+    <form action="/kelola-konten" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Judul</label>
@@ -37,6 +37,14 @@
                     <option value="{{ $isi->id }}">{{ $isi->name }}</option>
                 @endforeach
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Gambar</label>
+            <input type="file" name="image" id="image" class="form-control">
+            @error('image')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Simpan</button>

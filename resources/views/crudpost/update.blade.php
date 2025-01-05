@@ -12,7 +12,7 @@
         </div>
     @endif
 
-    <form action="{{ route('konten.update', $post->id) }}" method="POST">
+    <form action="{{ route('konten.update', $post->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -40,6 +40,17 @@
                     </option>
                 @endforeach
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Gambar</label>
+            <input type="file" name="image" id="image" class="form-control" value="{{ old('image', $post->image) }}">
+            @if ($post->image)
+                <img src="{{ asset('storage/' . $post->image) }}" alt="Gambar Post" class="img-thumbnail mt-2" width="200">
+            @endif
+            @error('image')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Simpan</button>
