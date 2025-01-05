@@ -39,5 +39,17 @@ Route::get('/peran-pengguna/{id}/edit', [UserController::class, 'edit'])->name('
 Route::put('/peran-pengguna/{id}', [UserController::class, 'update'])->name('user.update');
 
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('auth.login');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('auth.login');
+// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
+
+Route::middleware(['auth', AdminMiddleware::class . ':admin'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+});

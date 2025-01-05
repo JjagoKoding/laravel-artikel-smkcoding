@@ -14,5 +14,11 @@
         <li class="nav-item">
             <a class="nav-link text-white" href="/peran-pengguna">Peran Pengguna</a>
         </li>
+        <li class="nav-item">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </li>
     </ul>
 </div>
