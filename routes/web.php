@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,5 @@ Route::delete('kelola-konten/{id}', [PostController::class, 'destroy']);
 
 Route::get('/kelola-konten/{id}/edit', [PostController::class, 'edit'])->name('konten.edit');
 Route::put('/kelola-konten/{id}', [PostController::class, 'update'])->name('konten.update');
+
+Route::get('/kelola-kategori', [CategoryController::class, 'index'])->name('kategori.index');

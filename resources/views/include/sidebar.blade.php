@@ -9,7 +9,7 @@
             <a class="nav-link text-white" href="/kelola-konten">Kelola Konten</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="">Kelola Kategori</a>
+            <a class="nav-link text-white" href="/kelola-kategori">Kelola Kategori</a>
         </li>
     </ul>
 </div>
