@@ -18,4 +18,7 @@ Route::delete('kelola-konten/{id}', [PostController::class, 'destroy']);
 Route::get('/kelola-konten/{id}/edit', [PostController::class, 'edit'])->name('konten.edit');
 Route::put('/kelola-konten/{id}', [PostController::class, 'update'])->name('konten.update');
 
-Route::get('/kelola-kategori', [CategoryController::class, 'index'])->name('kategori.index');
+Route::get('/kelola-kategori', [CategoryController::class, 'index'])->name('category.index');
+
+Route::get('/kelola-kategori/create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/kelola-kategori', [CategoryController::class, 'store'])->name('category.store');

@@ -14,7 +14,7 @@
 
         <!-- Button Tambah Post -->
         <div class="d-flex justify-content-end mb-3">
-            <button class="btn btn-primary"><a href="/kelola-konten/kategori" style="color: #fff; text-decoration:none">Tambah Kategori</a></button>
+            <button class="btn btn-primary"><a href="/kelola-kategori/create" style="color: #fff; text-decoration:none">Tambah Kategori</a></button>
         </div>
 
         <table class="table table-striped">
@@ -31,7 +31,7 @@
                         <td>{{ $index = $index + 1 }}</td>
                         <td>{{ $isi->name }}</td>
                         <td>
-                            <button class="btn btn-warning btn-sm"><a href="/kelola-konten/{{ $isi->id }}/edit" style="color: #fff; text-decoration: none;">Edit</a></button>
+                            <button class="btn btn-warning btn-sm"><a href="/kelola-kategori/{{ $isi->id }}/edit" style="color: #fff; text-decoration: none;">Edit</a></button>
                             <form action="/kelola-konten/{{ $isi->id }}" method="POST" style="display: inline">
                                 @csrf
                                 @method("DELETE")
